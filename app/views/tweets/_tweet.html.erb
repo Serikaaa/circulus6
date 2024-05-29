@@ -1,0 +1,12 @@
+<div class="px-6 py-3 border-b" id="<%= dom_id(tweet) %>">
+  <div class="flex space-x-3 items-start pb-3">
+    <%= profile_image(tweet.user) %>
+  </div>
+  <p class="font-bold"><b><%= link_to tweet.user.name, profile_path(tweet.user), class: "hover:underline", data: { turbo: false } %></b></p>
+  <%= link_to tweet, data: { turbo: false } do %>
+  <div class="prose prose-lg"><%= tweet.body %></div>
+  <% end %>
+  <%= render "tweets/controls", tweet: tweet %>
+
+</div>
+

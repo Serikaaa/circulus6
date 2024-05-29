@@ -71,4 +71,23 @@ module ApplicationHelper
       "px-5 py-2 text-base #{base} #{theme}"
     end
   end
+  def profile_image(user, options={})
+    size = case options[:size]
+    when "large"
+      "w- h-2"
+    when "small"
+      "w-2 h-2"
+    else
+      "w-2 h-2"
+    end
+
+    classes = "#{size} flex-shrink-0 rounded-full border-2 border-white"
+
+    if user.profile_image.attached?
+      image_tag user.profile_image, class: classes
+    else
+      image_tag "https://doodleipsum.com/700/avatar-5?bg=3D27F6&i=f339578a64040310d3eb5bd82b550627", class: classes
+    end
+  end
+
 end

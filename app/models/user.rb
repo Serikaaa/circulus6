@@ -5,4 +5,9 @@ has_person_name
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :tweets
+
+  validates_uniqueness_of :username
+
+  has_one_attached :profile_image
 end
